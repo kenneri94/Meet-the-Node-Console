@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-
+require('dotenv').config()
 
 // #1
 // console.log('Hello World')
@@ -10,14 +10,38 @@ let app = express();
 //   res.send("Hello Express");
 // });
 
+// #7
+
+app.use((req,res,next)=>{
+  console.log(`${req.method} ${req.path}-${req.ip}`);
+  next()
+});
 // #3
-const path=require('path')
 app.get("/",(req,res)=>{
   res.sendFile(__dirname+"/views/index.html");
 });
 
 // #4
-app.use(path,express.static(__dirname+'/public'));
+app.use('/public',express.static(__dirname+'/public'));
+
+// #5
+
+// app.get('/json',(req,res)=>{
+//   res.json({"message": "Hello json"});
+// });
+
+// #6
+
+app.get('/json',(req,res)=>{
+  if(process.env.MESSAGE_STYLE==='uppercase'){
+    res.json({"message": "HELLO JSON"})
+  }else{
+    res.json({"message": "Hello json"});
+  }
+});
+
+
+
 
 
 
