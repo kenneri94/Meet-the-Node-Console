@@ -13,8 +13,7 @@ require('dotenv').config()
 // #7
 
 app.use((req,res,next)=>{
-  let string=`${req.method} ${req.path} -${re.ip}`
-  console.log(string);
+  console.log(req.method + "  " + req.path +"-"+ req.ip)
   next();
 });
 
