@@ -6,11 +6,18 @@ let app = express();
 // console.log('Hello World')
 
 // #2
+// app.get("/",(req,res)=>{
+//   res.send("Hello Express");
+// });
+
+// #3
+
 app.get("/",(req,res)=>{
-  res.send("Hello Express");
+  res.sendFile(__dirname+"/views/index.html");
 });
 
-
+// #4
+app.use(path,express.static(__dirname+'/public'));
 
 
 
