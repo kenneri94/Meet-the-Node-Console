@@ -11,7 +11,7 @@ let app = express();
 // });
 
 // #3
-
+const path=require('path')
 app.get("/",(req,res)=>{
   res.sendFile(__dirname+"/views/index.html");
 });
