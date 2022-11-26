@@ -10,16 +10,16 @@ require('dotenv').config()
 //   res.send("Hello Express");
 // });
 
-// #7
-
-app.use((req,res,next)=>{
-  console.log(req.method + "  " + req.path +"-"+ req.ip)
-  next();
-});
 
 // #4
 app.use('/public',express.static(__dirname+'/public'));
 
+// #7
+
+app.use((req,res,next)=>{
+  console.log(req.method + "  " + req.path + " - " + req.ip)
+  next();
+});
 
 
 // #3
@@ -29,9 +29,9 @@ app.get("/",(req,res)=>{
 
 // #5
 
-// app.get('/json',(req,res)=>{
-//   res.json({"message": "Hello json"});
-// });
+app.get('/json',(req,res)=>{
+  res.json({"message": "Hello json"});
+});
 
 // #6
 
