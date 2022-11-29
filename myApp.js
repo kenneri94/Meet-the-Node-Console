@@ -5,10 +5,7 @@ require('dotenv').config()
 
 // --> 7)  Mount the Logger middleware here
 app.use((req, res, next) => {
-
-  let string = `${req.method} ${req.path} - ${req.ip}`
-  console.log(string) 
-    
+    console.log(req.method + " " + req.path + " - "+ req.ip)
    next();
  
  });
@@ -24,7 +21,6 @@ app.use((req, res, next) => {
 
 // #4
 app.use('/public',express.static(__dirname+'/public'));
-
 
 
 // #3
